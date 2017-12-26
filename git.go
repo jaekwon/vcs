@@ -148,7 +148,7 @@ func (s *GitRepo) Update() error {
 		return nil
 	}
 
-	out, err = s.RunFromDir("git", "reset", "--hard")
+	out, err = s.RunFromDir("git", "reset", "--hard", "origin/HEAD")
 	if err != nil {
 		return NewRemoteError("Unable to update repository", err, string(out))
 	}
